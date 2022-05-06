@@ -13,7 +13,6 @@ ln -s ${EGO4D_DIR}/v1/clips/* data/long_term_anticipation/clips_hq/
 mkdir -p pretrained_models
 ln -s ${EGO4D_DIR}/v1/lta_models/* pretrained_models/
 ```
-<br />
 8.配置slurm.conf文件，具体操作如下面步骤所示<br />
 9.换源`echo "deb http://archive.ubuntu.com/ubuntu bionic universe" | sudo tee -a /etc/apt/sources.list`<br />
 10.`sudo apt update`<br />
@@ -53,5 +52,4 @@ PartitionName=normal Nodes=localhost Default=YES MaxTime=UNLIMITED State=UP
 NodeName=localhost Gres=gpu:4 CPUs=40 Boards=1 SocketsPerBoard=1 CoresPerSocket=20 ThreadsPerCore=2 RealMemory=257862
 GresTypes=gpu
 ```
-<br />
 15.在forcasting目录下，运行`sbatch tools/long_term_anticipation/resize_clips.sh`即可，它会把抽好帧的视频存到`data/long_term_anticipation/clips/`里<br />
